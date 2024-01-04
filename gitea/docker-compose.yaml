@@ -41,10 +41,28 @@ services:
     volumes:
       - gitea-postgress:/var/lib/postgresql/data
 
+  runner:
+    image: gitea/act_runner:nightly
+    environment:
+      CONFIG_FILE: /config/config.yaml
+      GITEA_INSTANCE_URL: "https://git.evanc.dev"
+      GITEA_RUNNER_REGISTRATION_TOKEN: "UKfvwl6ADR4jWb2UOS25fiEOQ7SCXaCSSgC5ctHr"
+      GITEA_RUNNER_NAME: "main"
+      GITEA_RUNNER_LABELS: "main"
+    volumes:
+      - gitea-runner-config:/config
+      - gitea-runner:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+
+
+
 
 volumes:
   gitea-postgress:
     external: true
   gitea:
     external: true
-  
+  gitea-runner:
+    external: true
+  gitea-runner-config:
+    external: true
