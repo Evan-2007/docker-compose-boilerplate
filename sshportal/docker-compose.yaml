@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  sshportal:
+    image: 3f173cfd986011817f0a21ffec947326724f28c9e1b8b6676336e690a3b7fc9d
+    ports:
+      - "2222:2222"
+    volumes:
+      - "sshportal:/data"
+    working_dir: "/data"
+    restart: unless-stopped
+
+
+volumes:
+  sshportal:
+    external: true
