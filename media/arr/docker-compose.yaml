@@ -11,7 +11,7 @@ services:
       - TZ=America/Los_Angeles
     volumes:
       - radarr-1080p:/config
-      - /mnt/movies/1080p:/movies
+      - /mnt/media/movies/1080p:/movies
       - /mnt/qbittoretnDownloads:/downloads
     ports:
       - 7878:7878
@@ -26,7 +26,7 @@ services:
       - TZ=America/Los_Angeles
     volumes:
       - radarr-4k:/config
-      - /mnt/movies/4k:/movies
+      - /mnt/media/movies/4k:/movies
       - /mnt/qbittoretnDownloads:/downloads
     ports:
       - 7879:7878
@@ -42,7 +42,7 @@ services:
       - TZ=America/Los_Angeles
     volumes:
       - sonarr-1080p:/config
-      - /mnt/tv/1080p:/tv
+      - /mnt/media/tv/1080p:/tv
       - /mnt/qbittoretnDownloads:/downloads
     ports:
       - 8989:8989
@@ -57,7 +57,7 @@ services:
       - TZ=America/Los_Angeles
     volumes:
       - sonarr-4k:/config
-      - /mnt/tv/4k:/tv
+      - /mnt/media/tv/4k:/tv
       - /mnt/qbittoretnDownloads:/downloads
     ports:
       - 8990:8989
@@ -99,7 +99,7 @@ services:
       - LOG_LEVEL=debug
       - TZ=America/Los_Angeles
     volumes:
-      - jellyseerr:/config
+      - jellyseerr:/app/config
     ports:
       - 5055:5055
     restart: unless-stopped
