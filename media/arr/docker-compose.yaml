@@ -101,9 +101,7 @@ services:
     volumes:
       - jellyseerr:/config
     ports:
-      - 8096:8096
-      - 8920:8920
-      - 7359:7359/udp
+      - 5055:5055
     restart: unless-stopped
 
 
