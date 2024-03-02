@@ -1,0 +1,50 @@
+  version: '3'
+
+  services:
+    runner1:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      environment:
+  #      CONFIG_FILE: /config.yaml
+        GITEA_INSTANCE_URL: "https://git.evanc.dev"
+        GITEA_RUNNER_REGISTRATION_TOKEN: "UKfvwl6ADR4jWb2UOS25fiEOQ7SCXaCSSgC5ctHr"
+        GITEA_RUNNER_NAME: "digital-ocean-ubuntu-latest-1"
+        GITEA_RUNNER_LABELS: "ubuntu-latest"
+      volumes:
+  #      - ./config1.yaml:/config.yaml
+        - ./runner1:/data
+        - /var/run/docker.sock:/var/run/docker.sock
+      restart: unless-stopped
+
+    runner2:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      environment:
+  #      CONFIG_FILE: /config.yaml
+        GITEA_INSTANCE_URL: "https://git.evanc.dev"
+        GITEA_RUNNER_REGISTRATION_TOKEN: "UKfvwl6ADR4jWb2UOS25fiEOQ7SCXaCSSgC5ctHr"
+        GITEA_RUNNER_NAME: "maiubuntu-latestn"
+        GITEA_RUNNER_LABELS: "digital-ocean-ubuntu-latest-2"
+      volumes:
+  #      - ./config2.yaml:/config.yaml
+        - ./runner2:/data
+        - /var/run/docker.sock:/var/run/docker.sock
+      restart: unless-stopped
+
+    runner3:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      environment:
+  #      CONFIG_FILE: /config.yaml
+        GITEA_INSTANCE_URL: "https://git.evanc.dev"
+        GITEA_RUNNER_REGISTRATION_TOKEN: "UKfvwl6ADR4jWb2UOS25fiEOQ7SCXaCSSgC5ctHr"
+        GITEA_RUNNER_NAME: "digital-ocean-ubuntu-latest-3"
+        GITEA_RUNNER_LABELS: "ubuntu-latest"
+      volumes:
+  #      - ./config3.yaml:/config.yaml
+        - ./runner3:/data
+        - /var/run/docker.sock:/var/run/docker.sock
+      restart: unless-stopped
