@@ -1,0 +1,124 @@
+version: 3.0.0
+
+services:
+  #radarr 4k and 1080p
+  radarr-1080p:
+    image: linuxserver/radarr:latest
+    container_name: radarr-1080p
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+    volumes:
+      - radarr-1080p:/config
+      - /mnt/movies/1080p:/movies
+      - /mnt/qbittoretnDownloads:/downloads
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+
+  radarr-4k:
+    image: linuxserver/radarr:latest
+    container_name: radarr-4k
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+    volumes:
+      - radarr-4k:/config
+      - /mnt/movies/4k:/movies
+      - /mnt/qbittoretnDownloads:/downloads
+    ports:
+      - 7879:7878
+    restart: unless-stopped
+  
+  #sonarr 4k and 1080p
+  sonarr-1080p:
+    image: linuxserver/sonarr:latest
+    container_name: sonarr-1080p
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+    volumes:
+      - sonarr-1080p:/config
+      - /mnt/tv/1080p:/tv
+      - /mnt/qbittoretnDownloads:/downloads
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+
+  sonarr-4k:
+    image: linuxserver/sonarr:latest
+    container_name: sonarr-4k
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+    volumes:
+      - sonarr-4k:/config
+      - /mnt/tv/4k:/tv
+      - /mnt/qbittoretnDownloads:/downloads
+    ports:
+      - 8990:8989
+    restart: unless-stopped
+
+  prowlarr:
+    image: linuxserver/prowlarr:latest
+    container_name: prowarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+    volumes:
+      - prowlarr:/config
+      - /mnt/qbittoretnDownloads:/downloads
+    ports:
+      - 9696:9696
+    restart: unless-stopped
+
+
+  flaresolverr:
+    # DockerHub mirror flaresolverr/flaresolverr:latest
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - LOG_HTML=${LOG_HTML:-false}
+      - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
+      - TZ=America/Los_Angeles
+    ports:
+      - "${PORT:-8191}:8191"
+    restart: unless-stopped 
+
+  
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=America/Los_Angeles
+    volumes:
+      - jellyseerr:/config
+    ports:
+      - 8096:8096
+      - 8920:8920
+      - 7359:7359/udp
+    restart: unless-stopped
+
+
+
+
+volumes:
+  radarr-1080p:
+    external: true
+  radarr-4k:
+    external: true
+  sonarr-1080p:
+    external: true
+  sonarr-4k:
+    external: true
+  prowlarr:
+    external: true
+  jellyseerr:
+    external: true
