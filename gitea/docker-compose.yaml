@@ -59,10 +59,6 @@ services:
 
 volumes:
   gitea-postgress:
-    external: true
   gitea:
-    external: true
   gitea-runner:
-    external: true
   gitea-runner-config:
-    external: true

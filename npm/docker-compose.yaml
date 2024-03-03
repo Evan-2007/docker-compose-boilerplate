@@ -27,6 +27,4 @@ services:
 
 volumes:
   nginxproxymanager:
-    external: true
   npmletsencrypt:
-    external: true

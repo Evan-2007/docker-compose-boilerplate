@@ -109,14 +109,8 @@ services:
 
 volumes:
   radarr-1080p:
-    external: true
   radarr-4k:
-    external: true
   sonarr-1080p:
-    external: true
   sonarr-4k:
-    external: true
   prowlarr:
-    external: true
   jellyseerr:
-    external: true

@@ -28,6 +28,4 @@ networks:
 
 volumes:
   jellystat-postgres-data:
-    external: true
   jellystat-backup-data:
-    external: true
