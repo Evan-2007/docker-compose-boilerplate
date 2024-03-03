@@ -12,7 +12,7 @@ Simple premade docker-compose files for self hosting
     * flaresolverr
     * jellyseerr/overseerr can be changed by updating comments
 * nginxproxymanager
-* qbittorent with wireguard Setup instructions can be found [here](https://github.com/Trigus42/alpine-qbittorrentvpn)
+* qbittorent with wireguard/openvpn. Setup instructions can be found [here](https://github.com/Trigus42/alpine-qbittorrentvpn)
 * runners 3 gitea runners built using a custom DOCKERFILE (Work in progress)
 * sshportal
 * stats
@@ -24,7 +24,7 @@ Simple premade docker-compose files for self hosting
 
 Download the docker-compose file to the directory you want to run the container in. In the same directory run the following command
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 If you do not have docker-compose or docker installed you can follow these steps
