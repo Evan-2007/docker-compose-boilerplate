@@ -41,5 +41,5 @@ docker-compose up
 
 If you do not have docker-compose or docker installed you can follow these steps
 
-*[Docker](https://docs.docker.com/engine/install/)
-*[docker-compose](https://docs.docker.com/compose/install/)
+* [Docker](https://docs.docker.com/engine/install/)
+* [docker-compose](https://docs.docker.com/compose/install/)
