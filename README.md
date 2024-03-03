@@ -21,20 +21,7 @@ Simple premade docker-compose files for self hosting
 
 ## Usage
 
-Download the docker-compose file to the directory you want to run the container in. if the file has volumes at the bottem they will need to be created using 
-
-```
-# replace vilume-name with the name at the bottem of the file. repeat for each volume.
-docker volume create volume-name
-```
-
-Or on the volumes section in the app change it to use a path. So jellyseerr:/app/config could insted be ./jellyseerr:/app/config this would insted save the data to a folder called jellyseerr in the folder containing the docker-compose file.
-
-
-Optional: under enviorment change the TZ variable to match your timezone if the app has one
-
-To start the apps run the following command in the directory containing your docker-compose.yaml
-
+Download the docker-compose file to the directory you want to run the container in. In the same directory run the following command
 ```
 docker-compose up
 ```
@@ -43,3 +30,10 @@ If you do not have docker-compose or docker installed you can follow these steps
 
 * [Docker](https://docs.docker.com/engine/install/)
 * [docker-compose](https://docs.docker.com/compose/install/)
+
+
+## Things to know
+
+* by default all data is stored in docker volumes. If you need to access the data it can be found at /var/lib/docker/volumes/[volume-name]/_data. This can be changed by editing the volumes section on each service not the volumes section at the bottom of the file.
+* For the apps that need it the timezone is set to America/Los_Angeles. This can be changed bt editing the TZ variable in the environment section of each service. [Here is a list of timezone names](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+* none of the ports of the apps in thos repo interfere with each other but if you run into issues the ports can be changed in the port section on a service. Ports are in a external:internal format. only change the external port to the new port not the internal port unless you know what your doing. If you have changed the port using the apps cli/interface or an envioprmental variable you might have to change the internal port to that port. You can read more about ports [here](https://docs.docker.com/compose/networking/)
