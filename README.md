@@ -17,6 +17,7 @@ Simple premade docker-compose files for self hosting
 * sshportal
 * stats
   * jellystat
+* More comming in the future 
 
 
 ## Usage
