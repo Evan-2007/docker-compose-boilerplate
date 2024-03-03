@@ -7,13 +7,13 @@ Simple premade docker-compose files for self hosting
   * postgres
 * media
   * arr 
-    * 2 radarr and sonarr servers 
+    * 2 radarr and sonarr servers (one for 1080p and 4k)
     * prowlarr
     * flaresolverr
     * jellyseerr/overseerr can be changed by updating comments
 * nginxproxymanager
 * qbittorent
-* runners 3 gitea runners built using a custom DOCKERFILE
+* runners 3 gitea runners built using a custom DOCKERFILE (Work in progress)
 * sshportal
 * stats
   * jellystat
