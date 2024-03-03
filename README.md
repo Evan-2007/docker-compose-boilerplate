@@ -12,7 +12,7 @@ Simple premade docker-compose files for self hosting
     * flaresolverr
     * jellyseerr/overseerr can be changed by updating comments
 * nginxproxymanager
-* qbittorent
+* qbittorent with wireguard Setup instructions can be found [here](https://github.com/Trigus42/alpine-qbittorrentvpn)
 * runners 3 gitea runners built using a custom DOCKERFILE (Work in progress)
 * sshportal
 * stats
